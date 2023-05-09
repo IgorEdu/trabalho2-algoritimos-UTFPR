@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <ctype.h>
 
 int validaConectores(int milhar, int centena, int dezena, int unidade)
@@ -62,6 +63,247 @@ char *concatenar(char *inicial, char *adicionar)
   return extensoConcatenado;
 }
 
+char *transformarMilhar(int milhar, char *extenso)
+{
+  switch (milhar)
+  {
+  case 1:
+    // printf("Um mil ");
+    extenso = concatenar(extenso, "Um mil ");
+    break;
+  case 2:
+    // printf("Dois mil ");
+    extenso = concatenar(extenso, "Dois mil ");
+    break;
+  case 3:
+    // printf("Três mil ");
+    extenso = concatenar(extenso, "Três mil ");
+    break;
+  case 4:
+    // printf("Quatro mil ");
+    extenso = concatenar(extenso, "Quatro mil ");
+    break;
+  case 5:
+    // printf("Cinco mil ");
+    extenso = concatenar(extenso, "Cinco mil ");
+    break;
+  case 6:
+    // printf("Seis mil ");
+    extenso = concatenar(extenso, "Seis mil ");
+    break;
+  case 7:
+    // printf("Sete mil ");
+    extenso = concatenar(extenso, "Sete mil ");
+    break;
+  case 8:
+    // printf("Oito mil ");
+    extenso = concatenar(extenso, "Oito mil ");
+    break;
+  case 9:
+    // printf("Nove mil ");
+    extenso = concatenar(extenso, "Nove mil ");
+    break;
+  default:
+    break;
+  }
+  return extenso;
+}
+
+char *transformarCentena(int centena, int dezena, int unidade, char *extenso)
+{
+  switch (centena)
+  {
+  case 1:
+    if (dezena != 0 || unidade != 0)
+    {
+      // printf("cento ");
+      extenso = concatenar(extenso, "cento ");
+    }
+    else
+    {
+      // printf("cem ");
+      extenso = concatenar(extenso, "cem ");
+    }
+    break;
+  case 2:
+    // printf("duzentos ");
+    extenso = concatenar(extenso, "duzentos ");
+    break;
+  case 3:
+    // printf("trezentos ");
+    extenso = concatenar(extenso, "trezentos ");
+    break;
+  case 4:
+    // printf("quatrocentos ");
+    extenso = concatenar(extenso, "quatrocentos ");
+    break;
+  case 5:
+    // printf("quinhentos ");
+    extenso = concatenar(extenso, "quinhentos ");
+    break;
+  case 6:
+    // printf("seiscentos ");
+    extenso = concatenar(extenso, "seiscentos ");
+    break;
+  case 7:
+    // printf("setecentos");
+    extenso = concatenar(extenso, "setecentos ");
+    break;
+  case 8:
+    // printf("oitocentos ");
+    extenso = concatenar(extenso, "oitocentos ");
+    break;
+  case 9:
+    // printf("novecentos ");
+    extenso = concatenar(extenso, "novecentos ");
+    break;
+  default:
+    break;
+  }
+  return extenso;
+}
+
+char *transformarDezena(int dezena, int unidade, char *extenso)
+{
+  switch (dezena)
+  {
+  case 1:
+    if (unidade == 0)
+    {
+      // printf("dez ");
+      extenso = concatenar(extenso, "dez ");
+    }
+    else
+    {
+      switch (unidade)
+      {
+      case 1:
+        // printf("onze ");
+        extenso = concatenar(extenso, "onze ");
+        break;
+      case 2:
+        // printf("doze ");
+        extenso = concatenar(extenso, "doze ");
+        break;
+      case 3:
+        // printf("treze ");
+        extenso = concatenar(extenso, "treze ");
+        break;
+      case 4:
+        // printf("quatorze ");
+        extenso = concatenar(extenso, "quatorze ");
+        break;
+      case 5:
+        // printf("quinze ");
+        extenso = concatenar(extenso, "quinze ");
+        break;
+      case 6:
+        // printf("dezesseis ");
+        extenso = concatenar(extenso, "dezesseis ");
+        break;
+      case 7:
+        // printf("dezesete ");
+        extenso = concatenar(extenso, "dezesete ");
+        break;
+      case 8:
+        // printf("dezoito ");
+        extenso = concatenar(extenso, "dezoito ");
+        break;
+      case 9:
+        // printf("dezenove ");
+        extenso = concatenar(extenso, "dezenove ");
+        break;
+      default:
+        break;
+      }
+    }
+    break;
+  case 2:
+    // printf("vinte ");
+    extenso = concatenar(extenso, "vinte ");
+    break;
+  case 3:
+    // printf("trinta ");
+    extenso = concatenar(extenso, "trinta ");
+    break;
+  case 4:
+    // printf("quarenta ");
+    extenso = concatenar(extenso, "quarenta ");
+    break;
+  case 5:
+    // printf("cinquenta ");
+    extenso = concatenar(extenso, "cinquenta ");
+    break;
+  case 6:
+    // printf("sessenta ");
+    extenso = concatenar(extenso, "sessenta ");
+    break;
+  case 7:
+    // printf("setenta ");
+    extenso = concatenar(extenso, "setenta ");
+    break;
+  case 8:
+    // printf("oitenta ");
+    extenso = concatenar(extenso, "oitenta ");
+    break;
+  case 9:
+    // printf("noventa ");
+    extenso = concatenar(extenso, "noventa ");
+    break;
+  default:
+    break;
+  }
+
+  return extenso;
+}
+
+char *transformarUnidade(int unidade, char *extenso)
+{
+  switch (unidade)
+  {
+  case 1:
+    // printf("um ");
+    extenso = concatenar(extenso, "um ");
+    break;
+  case 2:
+    // printf("dois ");
+    extenso = concatenar(extenso, "dois ");
+    break;
+  case 3:
+    // printf("três ");
+    extenso = concatenar(extenso, "três ");
+    break;
+  case 4:
+    // printf("quatro ");
+    extenso = concatenar(extenso, "quatro ");
+    break;
+  case 5:
+    // printf("cinco ");
+    extenso = concatenar(extenso, "cinco ");
+    break;
+  case 6:
+    // printf("seis ");
+    extenso = concatenar(extenso, "seis ");
+    break;
+  case 7:
+    // printf("sete ");
+    extenso = concatenar(extenso, "sete ");
+    break;
+  case 8:
+    // printf("oito ");
+    extenso = concatenar(extenso, "oito ");
+    break;
+  case 9:
+    // printf("nove ");
+    extenso = concatenar(extenso, "nove ");
+    break;
+  default:
+    break;
+  }
+
+  return extenso;
+}
+
 void transformaExtenso(float valor, FILE *arquivo)
 {
   float numero = valor;
@@ -76,7 +318,8 @@ void transformaExtenso(float valor, FILE *arquivo)
   int parteInteira = (int)numero;
 
   // Obtendo a parte decimal do número
-  casasDecimais = (int)((numero - parteInteira) * 100);
+  // casasDecimais = (int)((numero - parteInteira) * 100);
+  casasDecimais = (int)(round(numero * 100)) % 100;
 
   // Separando os dígitos
   milhar = parteInteira / 1000;
@@ -90,47 +333,7 @@ void transformaExtenso(float valor, FILE *arquivo)
   conectores = validaConectores(milhar, centena, dezena, unidade);
   if (parteInteira != 0)
   {
-    switch (milhar)
-    {
-    case 1:
-      // printf("Um mil ");
-      extenso = concatenar(extenso, "Um mil ");
-      break;
-    case 2:
-      // printf("Dois mil ");
-      extenso = concatenar(extenso, "Dois mil ");
-      break;
-    case 3:
-      // printf("Três mil ");
-      extenso = concatenar(extenso, "Três mil ");
-      break;
-    case 4:
-      // printf("Quatro mil ");
-      extenso = concatenar(extenso, "Quatro mil ");
-      break;
-    case 5:
-      // printf("Cinco mil ");
-      extenso = concatenar(extenso, "Cinco mil ");
-      break;
-    case 6:
-      // printf("Seis mil ");
-      extenso = concatenar(extenso, "Seis mil ");
-      break;
-    case 7:
-      // printf("Sete mil ");
-      extenso = concatenar(extenso, "Sete mil ");
-      break;
-    case 8:
-      // printf("Oito mil ");
-      extenso = concatenar(extenso, "Oito mil ");
-      break;
-    case 9:
-      // printf("Nove mil ");
-      extenso = concatenar(extenso, "Nove mil ");
-      break;
-    default:
-      break;
-    }
+    extenso = transformarMilhar(milhar, extenso);
 
     if (conectores / 100 != 0)
     {
@@ -138,55 +341,7 @@ void transformaExtenso(float valor, FILE *arquivo)
       extenso = concatenar(extenso, "e ");
     }
 
-    switch (centena)
-    {
-    case 1:
-      if (dezena != 0 || unidade != 0)
-      {
-        // printf("cento ");
-        extenso = concatenar(extenso, "cento ");
-      }
-      else
-      {
-        // printf("cem ");
-        extenso = concatenar(extenso, "cem ");
-      }
-      break;
-    case 2:
-      // printf("duzentos ");
-      extenso = concatenar(extenso, "duzentos ");
-      break;
-    case 3:
-      // printf("trezentos ");
-      extenso = concatenar(extenso, "trezentos ");
-      break;
-    case 4:
-      // printf("quatrocentos ");
-      extenso = concatenar(extenso, "quatrocentos ");
-      break;
-    case 5:
-      // printf("quinhentos ");
-      extenso = concatenar(extenso, "quinhentos ");
-      break;
-    case 6:
-      // printf("seiscentos ");
-      extenso = concatenar(extenso, "seiscentos ");
-      break;
-    case 7:
-      // printf("setecentos");
-      extenso = concatenar(extenso, "setecentos ");
-      break;
-    case 8:
-      // printf("oitocentos ");
-      extenso = concatenar(extenso, "oitocentos ");
-      break;
-    case 9:
-      // printf("novecentos ");
-      extenso = concatenar(extenso, "novecentos ");
-      break;
-    default:
-      break;
-    }
+    extenso = transformarCentena(centena, dezena, unidade, extenso);
 
     if ((conectores % 100) / 10 != 0)
     {
@@ -194,94 +349,7 @@ void transformaExtenso(float valor, FILE *arquivo)
       extenso = concatenar(extenso, "e ");
     }
 
-    switch (dezena)
-    {
-    case 1:
-      if (unidade == 0)
-      {
-        // printf("dez ");
-        extenso = concatenar(extenso, "dez ");
-      }
-      else
-      {
-        switch (unidade)
-        {
-        case 1:
-          // printf("onze ");
-          extenso = concatenar(extenso, "onze ");
-          break;
-        case 2:
-          // printf("doze ");
-          extenso = concatenar(extenso, "doze ");
-          break;
-        case 3:
-          // printf("treze ");
-          extenso = concatenar(extenso, "treze ");
-          break;
-        case 4:
-          // printf("quatorze ");
-          extenso = concatenar(extenso, "quatorze ");
-          break;
-        case 5:
-          // printf("quinze ");
-          extenso = concatenar(extenso, "quinze ");
-          break;
-        case 6:
-          // printf("dezesseis ");
-          extenso = concatenar(extenso, "dezesseis ");
-          break;
-        case 7:
-          // printf("dezesete ");
-          extenso = concatenar(extenso, "dezesete ");
-          break;
-        case 8:
-          // printf("dezoito ");
-          extenso = concatenar(extenso, "dezoito ");
-          break;
-        case 9:
-          // printf("dezenove ");
-          extenso = concatenar(extenso, "dezenove ");
-          break;
-        default:
-          break;
-        }
-      }
-      break;
-    case 2:
-      // printf("vinte ");
-      extenso = concatenar(extenso, "vinte ");
-      break;
-    case 3:
-      // printf("trinta ");
-      extenso = concatenar(extenso, "trinta ");
-      break;
-    case 4:
-      // printf("quarenta ");
-      extenso = concatenar(extenso, "quarenta ");
-      break;
-    case 5:
-      // printf("cinquenta ");
-      extenso = concatenar(extenso, "cinquenta ");
-      break;
-    case 6:
-      // printf("sessenta ");
-      extenso = concatenar(extenso, "sessenta ");
-      break;
-    case 7:
-      // printf("setenta ");
-      extenso = concatenar(extenso, "setenta ");
-      break;
-    case 8:
-      // printf("oitenta ");
-      extenso = concatenar(extenso, "oitenta ");
-      break;
-    case 9:
-      // printf("noventa ");
-      extenso = concatenar(extenso, "noventa ");
-      break;
-    default:
-      break;
-    }
+    extenso = transformarDezena(dezena, unidade, extenso);
 
     if (dezena != 1)
     {
@@ -290,47 +358,7 @@ void transformaExtenso(float valor, FILE *arquivo)
         // printf("e ");
         extenso = concatenar(extenso, "e ");
       }
-      switch (unidade)
-      {
-      case 1:
-        // printf("um ");
-        extenso = concatenar(extenso, "um ");
-        break;
-      case 2:
-        // printf("dois ");
-        extenso = concatenar(extenso, "dois ");
-        break;
-      case 3:
-        // printf("três ");
-        extenso = concatenar(extenso, "três ");
-        break;
-      case 4:
-        // printf("quatro ");
-        extenso = concatenar(extenso, "quatro ");
-        break;
-      case 5:
-        // printf("cinco ");
-        extenso = concatenar(extenso, "cinco ");
-        break;
-      case 6:
-        // printf("seis ");
-        extenso = concatenar(extenso, "seis ");
-        break;
-      case 7:
-        // printf("sete ");
-        extenso = concatenar(extenso, "sete ");
-        break;
-      case 8:
-        // printf("oito ");
-        extenso = concatenar(extenso, "oito ");
-        break;
-      case 9:
-        // printf("nove ");
-        extenso = concatenar(extenso, "nove ");
-        break;
-      default:
-        break;
-      }
+      extenso = transformarUnidade(unidade, extenso);
     }
 
     if (conectores == 0 && unidade == 1)
@@ -353,141 +381,14 @@ void transformaExtenso(float valor, FILE *arquivo)
       extenso = concatenar(extenso, "e ");
     }
 
-    switch ((casasDecimais / 10))
-    {
-    case 1:
-      if ((casasDecimais % 10) == 0)
-      {
-        // printf("dez ");
-        extenso = concatenar(extenso, "dez ");
-      }
-      else
-      {
-        switch ((casasDecimais % 10))
-        {
-        case 1:
-          // printf("onze ");
-          extenso = concatenar(extenso, "onze ");
-          break;
-        case 2:
-          // printf("doze ");
-          extenso = concatenar(extenso, "doze ");
-          break;
-        case 3:
-          // printf("treze ");
-          extenso = concatenar(extenso, "treze ");
-          break;
-        case 4:
-          // printf("quatorze ");
-          extenso = concatenar(extenso, "quatorze ");
-          break;
-        case 5:
-          // printf("quinze ");
-          extenso = concatenar(extenso, "quinze ");
-          break;
-        case 6:
-          // printf("dezesseis ");
-          extenso = concatenar(extenso, "dezesseis ");
-          break;
-        case 7:
-          // printf("dezesete ");
-          extenso = concatenar(extenso, "dezesete ");
-          break;
-        case 8:
-          // printf("dezoito ");
-          extenso = concatenar(extenso, "dezoito ");
-          break;
-        case 9:
-          // printf("dezenove ");
-          extenso = concatenar(extenso, "dezenove ");
-          break;
-        default:
-          break;
-        }
-      }
-      break;
-    case 2:
-      // printf("vinte ");
-      extenso = concatenar(extenso, "vinte ");
-      break;
-    case 3:
-      // printf("trinta ");
-      extenso = concatenar(extenso, "trinta ");
-      break;
-    case 4:
-      // printf("quarenta ");
-      extenso = concatenar(extenso, "quarenta ");
-      break;
-    case 5:
-      // printf("cinquenta ");
-      extenso = concatenar(extenso, "cinquenta ");
-      break;
-    case 6:
-      // printf("sessenta ");
-      extenso = concatenar(extenso, "sessenta ");
-      break;
-    case 7:
-      // printf("setenta ");
-      extenso = concatenar(extenso, "setenta ");
-      break;
-    case 8:
-      // printf("oitenta ");
-      extenso = concatenar(extenso, "oitenta ");
-      break;
-    case 9:
-      // printf("noventa ");
-      extenso = concatenar(extenso, "noventa ");
-      break;
-    default:
-      break;
-    }
+    extenso = transformarDezena(casasDecimais / 10, casasDecimais % 10, extenso);
 
     if ((casasDecimais / 10) != 1)
     {
       // printf("e ");
       extenso = concatenar(extenso, "e ");
 
-      switch ((casasDecimais % 10))
-      {
-      case 1:
-        // printf("um ");
-        extenso = concatenar(extenso, "um ");
-        break;
-      case 2:
-        // printf("dois ");
-        extenso = concatenar(extenso, "dois ");
-        break;
-      case 3:
-        // printf("três ");
-        extenso = concatenar(extenso, "três ");
-        break;
-      case 4:
-        // printf("quatro ");
-        extenso = concatenar(extenso, "quatro ");
-        break;
-      case 5:
-        // printf("cinco ");
-        extenso = concatenar(extenso, "cinco ");
-        break;
-      case 6:
-        // printf("seis ");
-        extenso = concatenar(extenso, "seis ");
-        break;
-      case 7:
-        // printf("sete ");
-        extenso = concatenar(extenso, "sete ");
-        break;
-      case 8:
-        // printf("oito ");
-        extenso = concatenar(extenso, "oito ");
-        break;
-      case 9:
-        // printf("nove ");
-        extenso = concatenar(extenso, "nove ");
-        break;
-      default:
-        break;
-      }
+      extenso = transformarUnidade(casasDecimais % 10, extenso);
     }
     // printf("centavos");
     extenso = concatenar(extenso, "centavos");
@@ -532,7 +433,7 @@ int main()
 
   const float MINIMO_PERMITIDO = 0.0f;
   const float MAXIMO_PERMITIDO = 9999.99f;
-  const char *CAMINHO_ARQUIVO = "../dados.txt";
+  const char *CAMINHO_ARQUIVO = "dados.txt";
   FILE *arquivo;
   arquivo = fopen(CAMINHO_ARQUIVO, "a");
 
